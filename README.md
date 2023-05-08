@@ -10,3 +10,5 @@ Lab04 - Local and Global variables. “Pass by value”, string and other librar
 
 Lab05 - Recursions, Pointers and arrays
 
+LAB 6 - Array of pointers. Command-line arguments  (program parameters), Dynamic memory allocation. Structures, self-referential structures (Linked List) 
+
