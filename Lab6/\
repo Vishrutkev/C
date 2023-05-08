@@ -1,0 +1,61 @@
+// your information goes below
+/***************************************
+* 22Fa - Lab6 *
+* Author: Kevadiya, Vishrut *
+* Email: vishrutk@my.yorku.ca *
+* EECS username: vishrutk *
+* Yorku Student #: 219155290
+************************************** **/
+
+
+#include <stdio.h>
+#include <string.h>
+
+int getSum(char *[], int n);
+
+int getDiff(char *[], int n);
+
+
+int main(int argc, char *argv[]){
+
+printf("There are %d arguments (excluding \"a.out\")", argc-1);
+
+if(strcmp(argv[1], "sum") == 0){
+	int sum = getSum(argv, argc);
+	printf("= %d", sum);		
+}else{
+
+        int sum = getDiff(argv, argc);
+        printf("= %d", sum);
+
+
+}
+
+}
+
+
+int getSum(char *arr[], int n){
+	int sum = 0;
+	for(int i = 2; i < n; i++){
+		if(i +1 != n){
+			printf("%d + ", *arr[i]);
+
+		}else{
+			printf("%d", *arr[i]);
+		}
+		sum += *arr[i];
+
+	}
+
+	return sum;
+
+
+}
+
+
+int getDiff(char *arr[], int n){
+
+
+return 0;
+
+}
