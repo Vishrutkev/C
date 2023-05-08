@@ -8,3 +8,5 @@ Lab03 - Arrays and Strings, Relational and Logic operators, Type conversion, Bit
 
 Lab04 - Local and Global variables. “Pass by value”, string and other library functions. 2D arrays. Pointer basics.
 
+Lab05 - Recursions, Pointers and arrays
+
