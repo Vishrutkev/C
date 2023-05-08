@@ -1,0 +1,173 @@
+/***************************************
+* 23W - Programming Assignment 2 *
+* Author: Last name, first name *
+* EECS/Prism username: Your eecs login username *
+* Yorku Student #: Your student number *
+* Email: Your email address *
+****************************************/
+
+
+#include <stdio.h>
+#include <ctype.h>  // for tolower()
+#include <string.h>
+#include <stdlib.h>
+
+#define SIZE 30
+#define fieldLength 100
+
+struct db_type
+{
+   char name[fieldLength];
+   int age;
+   float fare;
+   char embark[fieldLength] ;
+   char class[fieldLength] ;
+};
+
+ 
+char prompt_menu(void);
+void enterNew(struct db_type * pArr[]);  
+void init_list(struct db_type * pArr[]); 
+void displayDB(struct db_type * pArr[]);   
+void sortDB(struct db_type * pArr[]);
+void updateRecord(struct db_type * pArr[]); 
+void removeRecord(struct db_type * pArr[]);
+void clearDB(struct db_type * pArr[]);
+
+
+int main(int argc, char *argv[])
+{
+    
+    struct db_type * db_pArr[SIZE];  // main db storage
+
+    init_list(db_pArr);  // set to NULL
+    
+    char choice;
+    for(; ;){
+      choice = prompt_menu();
+      switch (choice)
+      {
+         case 'n': enterNew(db_pArr); break;
+         case 'd': displayDB(db_pArr); break;
+        
+         case 's': sortDB(db_pArr); break;
+	   
+         case 'c': clearDB(db_pArr); break;  
+        
+         case 'u': updateRecord(db_pArr); break;
+         case 'r': removeRecord(db_pArr);break;
+         
+         case 'q': exit(1); // terminate the whole program
+       }
+	
+     }
+     return 0;
+}
+
+
+char prompt_menu(void){
+  char s[80];
+  while(1){
+    printf("\n-----------------------------------------------------------------\n");
+    printf("|    %-20s","(N)ew record");
+    printf("%-20s","(R)emove record");
+    printf("(U)pdate record\t|\n");
+    printf("|    %-20s","(S)ort database");
+    printf("%-20s","(C)lear database");
+    printf("(D)isplay database\t|\n");
+  
+    printf("|    %-20s","(Q)uit");
+    printf("*Case Insensitive*\t\t\t|\n");
+    printf("-----------------------------------------------------------------\n");
+    printf("choose one: ");
+  
+    fgets(s,50, stdin); // \n added
+    
+    if (strlen(s) == 2 && strchr("edlsuqrcwnvpr", tolower(*s))) 
+       return tolower(*s); // s[0], return the first character of s  
+    //else
+    printf("not a valid input!\n");
+	 
+ }
+}
+
+
+void init_list(struct db_type * pArr[]){
+  int t;
+  for (t=0; t<SIZE; t++)
+  { 
+     pArr[t]= NULL;
+  }
+}
+
+/* clear database, deleting all the records in the database */
+void clearDB(struct db_type * pArr[]){
+   char yn[3];
+   printf("are you sure to clear database? (y) or (n)? ");
+    
+   fgets(yn,3,stdin);
+   
+   // complete the function by calling init_list();
+   if( ) 
+   ;
+}
+
+
+/* input a new record into the database */
+/* hint: need malloc */
+void enterNew(struct db_type * pArr[SIZE])
+{  
+   ...
+   printf("name: "); 
+   ;
+}
+
+
+/* remove an existing item from the database */
+void removeRecord (struct db_type * pArr[])	
+{
+  
+   printf("enter full name to remove: ");
+
+   ;
+
+}
+
+/* display all the records in the database. Generate output with the same formaing as the sample output.
+ use \t to align well
+*/
+void displayDB(struct db_type * pArr[]){
+  
+  int t;
+  printf("===============================\n");
+  for (t=0; t <SIZE ; t++)
+  {
+     if( pArr[t] != NULL)
+     {
+        printf("\nname:\t%s",  (*pArr[t]).name );  // pArr[t] -> name
+        ....
+     } 
+     ....
+  }
+  
+ 
+}
+
+
+ /* modify an existing record */
+void updateRecord (struct db_type * pArr[])	{
+   ...
+  printf("enter full name to search: ");
+  
+   ....
+}
+
+ 
+// sort the record, either by name or fare, prompting use for choice
+void sortDB(struct db_type * pArr[])
+{
+ 
+  printf("sort by name (n) or fare (f)? ");
+  
+}
+
